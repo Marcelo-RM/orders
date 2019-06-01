@@ -264,6 +264,6 @@
 					sap:action-for="GWSAMPLE_BASIC.SalesOrder"><Parameter Name="SalesOrderID" Type="Edm.String" Mode="In" MaxLength="10"/></FunctionImport>
 				<FunctionImport Name="SalesOrder_GoodsIssueCreated" ReturnType="GWSAMPLE_BASIC.SalesOrder" EntitySet="SalesOrderSet" m:HttpMethod="POST"
 					sap:action-for="GWSAMPLE_BASIC.SalesOrder"><Parameter Name="SalesOrderID" Type="Edm.String" Mode="In" MaxLength="10"/></FunctionImport>
-			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata"/></Schema>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./iwbep/GWSAMPLE_BASIC/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./iwbep/GWSAMPLE_BASIC/$metadata"/></Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

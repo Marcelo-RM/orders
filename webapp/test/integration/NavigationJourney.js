@@ -31,7 +31,7 @@ sap.ui.define([
 
 		// Assertions
 		Then.onTheAppPage.theAppShowsFCLDesign("MidColumnFullScreen");
-		Then.onTheDetailPage.iShouldSeeTheFullScreenToggleButton("exitFullScreen");
+			Then.onTheDetailPage.iShouldSeeTheFullScreenToggleButton("exitFullScreen");
 	});
 
 	opaTest("Should press full screen toggle button: The app shows two columns", function (Given, When, Then) {
@@ -40,7 +40,7 @@ sap.ui.define([
 
 		// Assertions
 		Then.onTheAppPage.theAppShowsFCLDesign("TwoColumnsMidExpanded");
-		Then.onTheDetailPage.iShouldSeeTheFullScreenToggleButton("enterFullScreen");
+			Then.onTheDetailPage.iShouldSeeTheFullScreenToggleButton("enterFullScreen");
 	});
 
 	opaTest("Should react on hash change", function (Given, When, Then) {

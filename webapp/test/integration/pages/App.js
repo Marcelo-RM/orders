@@ -42,17 +42,6 @@ sap.ui.define([
 					});
 				},
 
-				iShouldSeeTheMessageBox : function () {
-					return this.waitFor({
-						searchOpenDialogs: true,
-						controlType: "sap.m.Dialog",
-						matchers : new PropertyStrictEquals({ name: "type", value: "Message"}),
-						success: function () {
-							Opa5.assert.ok(true, "The correct MessageBox was shown");
-						}
-					});
-				},
-
 				theAppShowsFCLDesign: function (sLayout) {
 					return this.waitFor({
 						id : "layout",
@@ -62,6 +51,17 @@ sap.ui.define([
 							Opa5.assert.ok(true, "the app shows " + sLayout + " layout");
 						},
 						errorMessage : "The app does not show " + sLayout + " layout"
+					});
+				},
+
+				iShouldSeeTheMessageBox : function () {
+					return this.waitFor({
+						searchOpenDialogs: true,
+						controlType: "sap.m.Dialog",
+						matchers : new PropertyStrictEquals({ name: "type", value: "Message"}),
+						success: function () {
+							Opa5.assert.ok(true, "The correct MessageBox was shown");
+						}
 					});
 				}
 

@@ -1,7 +1,7 @@
 {
-	"_version": "1.9.0",
+	"_version": "1.12.0",
 	"sap.app": {
-		"id": "opensap.orders.orders",
+		"id": "opensap.orders",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
@@ -22,7 +22,7 @@
 		},
 		"sourceTemplate": {
 			"id": "sap.ui.ui5-template-plugin.2masterdetail",
-			"version": "1.60.13"
+			"version": "1.61.1"
 		}
 	},
 	"sap.ui": {
@@ -42,18 +42,25 @@
 		}
 	},
 	"sap.ui5": {
+		"resourceRoots": {
+			"opensap.reuse.control": "./control"
+		},
 		"rootView": {
-			"viewName": "opensap.orders.orders.view.App",
+			"viewName": "opensap.orders.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
 		},
 		"dependencies": {
-			"minUI5Version": "1.42.0",
+			"minUI5Version": "1.60.0",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
-				"sap.f": {}
+				"sap.f": {},
+				"sap.ui.layout": {},
+				"sap.uxap": {},
+				"sap.tnt": {},
+				"sap.suite.ui.commons": {}
 			}
 		},
 		"contentDensities": {
@@ -64,19 +71,22 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "opensap.orders.orders.i18n.i18n"
+					"bundleName": "opensap.orders.i18n.i18n"
 				}
 			},
 			"": {
 				"dataSource": "mainService",
-				"preload": true
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
 			}
 		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.f.routing.Router",
 				"viewType": "XML",
-				"viewPath": "opensap.orders.orders.view",
+				"viewPath": "opensap.orders.view",
 				"controlId": "layout",
 				"controlAggregation": "beginColumnPages",
 				"bypassed": {
@@ -99,8 +109,17 @@
 					]
 				},
 				{
+					"pattern": "SalesOrderSet/{objectId}/create",
+					"name": "create",
+					"target": [
+						"master",
+						"object",
+						"create"
+					]
+				},
+				{
+					"pattern": "SalesOrderSet/{objectId}/Item/{itemPosition}",
 					"name": "Info",
-					"pattern": "Info",
 					"target": [
 						"master",
 						"object",
@@ -132,7 +151,14 @@
 				"Info": {
 					"viewType": "XML",
 					"viewName": "Info",
-					"controlAggregation": "endColumnPages"
+					"controlAggregation": "endColumnPages",
+					"viewId": "Info"
+				},
+				"create": {
+					"viewType": "XML",
+					"viewName": "Create",
+					"controlAggregation": "endColumnPages",
+					"viewId": "create"
 				}
 			}
 		}

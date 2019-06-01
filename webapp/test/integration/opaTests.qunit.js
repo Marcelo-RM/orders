@@ -6,7 +6,7 @@ sap.ui.getCore().attachInit(function() {
 	"use strict";
 
 	sap.ui.require([
-		"opensap/orders/orders/test/integration/AllJourneys"
+		"opensap/orders/test/integration/AllJourneys"
 	], function() {
 		QUnit.start();
 	});

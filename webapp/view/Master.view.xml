@@ -1,20 +1,20 @@
 <mvc:View
-	controllerName="opensap.orders.orders.controller.Master"
+	controllerName="opensap.orders.controller.Master"
 	xmlns="sap.m"
 	xmlns:f="sap.f"
-	xmlns:semantic="sap.f.semantic"
 	xmlns:l="sap.ui.layout"
+	xmlns:semantic="sap.f.semantic"
 	xmlns:mvc="sap.ui.core.mvc">
 
 	<semantic:SemanticPage
 		id="masterPage"
 		preserveHeaderStateOnScroll="true"
 		toggleHeaderOnTitleClick="false">
-		<semantic:titleHeading>
+		<semantic:headerContent>
 			<Title
 				id="masterPageTitle"
 				text="{masterView>/title}"/>
-		</semantic:titleHeading>
+		</semantic:headerContent>
 		<semantic:titleHeading>
 			<l:HorizontalLayout>
 				<f:Avatar
@@ -35,11 +35,11 @@
 				items="{
 					path: '/SalesOrderSet',
 					sorter: {
-						path: 'CustomerName',
-						descending: false
+						path: 'CreatedAt',
+						descending: true
 					},
 					parameters: {
-						expand: 'ToBusinessPartner'
+						'expand': 'ToBusinessPartner'
 					},
 					groupHeaderFactory: '.createGroupHeader'
 				}"
@@ -58,7 +58,7 @@
 						press=".onOpenViewSettings">
 						<Title
 							id="filterBarLabel"
-							text="{masterView>/filterBarLabel}" />
+							text="{masterView>/filterBarLabel}"/>
 					</Toolbar>
 				</infoToolbar>
 				<headerToolbar>
@@ -112,17 +112,18 @@
 								style: 'short'
 							}
 						}"/>
-						<ObjectAttribute text="{ToBusinessPartner/BusinessPartnerID}" />
+						<ObjectAttribute text="{ToBusinessPartner/BusinessPartnerID}"/>
 						<firstStatus>
-							<ObjectStatus title="{ToBusinessPartner/Address/Country}"
+							<ObjectStatus
+								title ="{ToBusinessPartner/Address/Country}"
 								text="{ToBusinessPartner/Address/City}"/>
-						</firstStatus> 
+						</firstStatus>
 						<markers>
 							<ObjectMarker type="{=
 								${ToBusinessPartner/Address/Country} === 'MX' &amp;&amp;
-								${ToBusinessPartner/Address/City} === 'Mexiko City'
-								? 'Favorite' : 'Flagged'
-							}" />
+								${ToBusinessPartner/Address/City} ==='Mexiko City'
+							 	? 'Favorite' : 'Flagged'
+							 }"/>
 						</markers>
 					</ObjectListItem>
 				</items>

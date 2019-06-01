@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
-	"opensap/orders/orders/localService/mockserver",
+	"opensap/orders/localService/mockserver",
 	"sap/ui/model/odata/v2/ODataModel"
 ], function(Opa5, mockserver, ODataModel) {
 	"use strict";
 
-	return Opa5.extend("opensap.orders.orders.test.integration.arrangements.Startup", {
+	return Opa5.extend("opensap.orders.test.integration.arrangements.Startup", {
 
 		/**
 		 * Initializes mock server, then starts the app component
@@ -29,7 +29,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "opensap.orders.orders",
+					name: "opensap.orders",
 					async: true
 				},
 				hash: oOptions.hash,

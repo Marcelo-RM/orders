@@ -2,7 +2,7 @@
 
 sap.ui.define([
 	"sap/m/Text",
-	"opensap/orders/orders/model/formatter"
+	"opensap/orders/model/formatter"
 ], function (Text, formatter) {
 	"use strict";
 

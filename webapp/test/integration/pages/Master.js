@@ -20,18 +20,18 @@ sap.ui.define([
 			actions : {
 
 				iSortTheListOnName : function () {
-					return this.iChooseASorter("sortButton", "Sort By <CustomerName>");
+					return this.iChooseASorter("sortButton", "Sort By Customer");
 				},
 				iSortTheListOnUnitNumber : function () {
-					return this.iChooseASorter("sortButton", "Sort By <NetAmount>");
+					return this.iChooseASorter("sortButton", "Sort By Price");
 				},
 
 				iFilterTheListOnUnitNumber : function () {
-					return this.iMakeASelection("filterButton", "<NetAmount>", "<100 <CurrencyCode>");
+					return this.iMakeASelection("filterButton", "Price", "<100 Currency");
 				},
 
 				iGroupTheList : function () {
-					return this.iChooseASorter("groupButton", "<NetAmount> Group");
+					return this.iChooseASorter("groupButton", "Price Group");
 				},
 
 				iRemoveListGrouping : function () {
@@ -299,7 +299,7 @@ sap.ui.define([
 						viewName : sViewName,
 						id: "masterPageTitle",
 						autoWait: false,
-						matchers: new PropertyStrictEquals({name : "text", value : "<SalesOrderSet> (0)"}),
+						matchers: new PropertyStrictEquals({name : "text", value : "Order (0)"}),
 						success: function () {
 							Opa5.assert.ok(true, "The list header displays zero hits");
 						},
@@ -455,7 +455,7 @@ sap.ui.define([
 							this.waitFor({
 								id : "masterPageTitle",
 								viewName : sViewName,
-								matchers : new PropertyStrictEquals({name : "text", value : "<SalesOrderSet> (" + iExpectedLength + ")"}),
+								matchers : new PropertyStrictEquals({name : "text", value : "Order (" + iExpectedLength + ")"}),
 								success : function () {
 									Opa5.assert.ok(true, "The master page header displays " + iExpectedLength + " items");
 								},
